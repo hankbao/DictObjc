@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A522C1261CC3B93C00483A90 /* QueryRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A522C1251CC3B93C00483A90 /* QueryRecord.m */; };
+		A522C1291CC3BBD900483A90 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A522C1281CC3BBD900483A90 /* DataSource.m */; };
 		A5B990BA1CC394C20061C748 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B990B91CC394C20061C748 /* main.m */; };
 		A5B990BD1CC394C20061C748 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B990BC1CC394C20061C748 /* AppDelegate.m */; };
 		A5B990C01CC394C20061C748 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B990BF1CC394C20061C748 /* ViewController.m */; };
@@ -16,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A522C1241CC3B93C00483A90 /* QueryRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryRecord.h; sourceTree = "<group>"; };
+		A522C1251CC3B93C00483A90 /* QueryRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryRecord.m; sourceTree = "<group>"; };
+		A522C1271CC3BBD900483A90 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		A522C1281CC3BBD900483A90 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		A5B990B51CC394C20061C748 /* DictObjc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DictObjc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B990B91CC394C20061C748 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5B990BB1CC394C20061C748 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -60,8 +66,12 @@
 			children = (
 				A5B990BB1CC394C20061C748 /* AppDelegate.h */,
 				A5B990BC1CC394C20061C748 /* AppDelegate.m */,
+				A522C1271CC3BBD900483A90 /* DataSource.h */,
+				A522C1281CC3BBD900483A90 /* DataSource.m */,
 				A5B990BE1CC394C20061C748 /* ViewController.h */,
 				A5B990BF1CC394C20061C748 /* ViewController.m */,
+				A522C1241CC3B93C00483A90 /* QueryRecord.h */,
+				A522C1251CC3B93C00483A90 /* QueryRecord.m */,
 				A5B990C11CC394C20061C748 /* Main.storyboard */,
 				A5B990C41CC394C20061C748 /* Assets.xcassets */,
 				A5B990C61CC394C20061C748 /* LaunchScreen.storyboard */,
@@ -150,6 +160,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5B990C01CC394C20061C748 /* ViewController.m in Sources */,
+				A522C1291CC3BBD900483A90 /* DataSource.m in Sources */,
+				A522C1261CC3B93C00483A90 /* QueryRecord.m in Sources */,
 				A5B990BD1CC394C20061C748 /* AppDelegate.m in Sources */,
 				A5B990BA1CC394C20061C748 /* main.m in Sources */,
 			);
@@ -300,6 +312,7 @@
 				A5B990CE1CC394C20061C748 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
