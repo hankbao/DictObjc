@@ -73,8 +73,8 @@
 				A522C1241CC3B93C00483A90 /* QueryRecord.h */,
 				A522C1251CC3B93C00483A90 /* QueryRecord.m */,
 				A5B990C11CC394C20061C748 /* Main.storyboard */,
-				A5B990C41CC394C20061C748 /* Assets.xcassets */,
 				A5B990C61CC394C20061C748 /* LaunchScreen.storyboard */,
+				A5B990C41CC394C20061C748 /* Assets.xcassets */,
 				A5B990C91CC394C20061C748 /* Info.plist */,
 				A5B990B81CC394C20061C748 /* Supporting Files */,
 			);
