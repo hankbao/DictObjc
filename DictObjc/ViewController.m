@@ -6,6 +6,8 @@
 //  Copyright © 2016 zTap Studio. All rights reserved.
 //
 
+@import SafariServices;
+
 #import "ViewController.h"
 #import "QueryRecord.h"
 #import "DataSource.h"
@@ -51,7 +53,7 @@
                                     countLabel = [[UILabel alloc] initWithFrame:frame];
                                     cell.accessoryView = countLabel;
                                 }
-                                countLabel.text = [NSString stringWithFormat:@"%ld", record.queryCount];
+                                countLabel.text = [NSString stringWithFormat:@"%ld", (unsigned long)record.queryCount];
 
                                 return cell;
                             } reuseIdentifier:@"dict.objc.cell.simple"];
@@ -63,7 +65,9 @@
 - (void)setupUI {
     self.toolbar
         = [[UIToolbar alloc] initWithFrame:[self toolbarFrame]];
-    self.toolbar.items = self.toolbarItems;
+    self.toolbar.items = @[[self textItem],
+                           [self spaceItem],
+                           [self searchItem]];
 }
 
 - (BOOL)canBecomeFirstResponder {
@@ -102,14 +106,18 @@
             target:self action:@selector(query:)];
 }
 
-- (NSArray<UIBarButtonItem *> *)toolbarItems {
-    return @[[self textItem],
-             [self spaceItem],
-             [self searchItem]];
-}
-
 - (UIView *)inputAccessoryView {
     return self.toolbar;
+}
+
+- (void)showTerm:(NSString *)term {
+    NSString *encoded = [term stringByAddingPercentEncodingWithAllowedCharacters:
+                         [NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSString *urlString = [NSString stringWithFormat:@"https://cn.bing.com/dict/search?q=%@", encoded];
+    NSURL *url = [NSURL URLWithString:urlString];
+    UIViewController *libViewController
+    = [[SFSafariViewController alloc] initWithURL:url entersReaderIfAvailable:YES];
+    [self presentViewController:libViewController animated:YES completion:NULL];
 }
 
 - (void)queryTerm:(NSString *)term {
@@ -131,34 +139,24 @@
                               withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 
-    UIViewController *libViewController
-        = [[UIReferenceLibraryViewController alloc] initWithTerm:term];
-    [self.navigationController pushViewController:libViewController animated:YES];
+    [self showTerm:term];
 }
 
 - (IBAction)query:(id)sender {
     NSString *term = self.textField.text;
+    [self queryTerm:term];
+}
 
-    if (term && [UIReferenceLibraryViewController
-                 dictionaryHasDefinitionForTerm:term]) {
-        if ([sender respondsToSelector:@selector(resignFirstResponder)]) {
-            [sender resignFirstResponder];
-        }
-        [self resignFirstResponder];
-        [self queryTerm:term];
-    }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    NSString *term = [self.dataSource termAtIndexPath:indexPath];
+    [self queryTerm:term];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self query:textField];
     return NO;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    NSString *term = [self.dataSource termAtIndexPath:indexPath];
-    [self queryTerm:term];
 }
 
 @end
