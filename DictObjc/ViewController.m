@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "QueryRecord.h"
 #import "DataSource.h"
+#import "NSString+Query.h"
 
 @interface ViewController () <UITextFieldDelegate, UITableViewDelegate>
 
@@ -111,12 +112,10 @@
 }
 
 - (void)showTerm:(NSString *)term {
-    NSString *encoded = [term stringByAddingPercentEncodingWithAllowedCharacters:
-                         [NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSString *urlString = [NSString stringWithFormat:@"https://cn.bing.com/dict/search?q=%@", encoded];
-    NSURL *url = [NSURL URLWithString:urlString];
+    NSURL *url = [term zt_termQueryURL];
+
     UIViewController *libViewController
-    = [[SFSafariViewController alloc] initWithURL:url entersReaderIfAvailable:YES];
+        = [[SFSafariViewController alloc] initWithURL:url entersReaderIfAvailable:YES];
     [self presentViewController:libViewController animated:YES completion:NULL];
 }
 
