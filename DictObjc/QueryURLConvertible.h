@@ -1,5 +1,5 @@
 //
-//  NSString+Query.h
+//  QueryURLConvertible.h
 //  DictObjc
 //
 //  Created by Hank Bao on 16/4/22.
@@ -8,7 +8,8 @@
 
 @import Foundation;
 
-#import "QueryURLConvertible.h"
+@protocol QueryURLConvertible <NSObject>
 
-@interface NSString (Query) <QueryURLConvertible>
+@property (nonatomic, strong, readonly) NSURL* zt_queryURL;
+
 @end

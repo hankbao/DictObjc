@@ -35,6 +35,7 @@
 		A5B990C91CC394C20061C748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5D0A48E1CCA7ECB0002F864 /* NSString+Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Query.h"; sourceTree = "<group>"; };
 		A5D0A48F1CCA7ECB0002F864 /* NSString+Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Query.m"; sourceTree = "<group>"; };
+		A5D0A4911CCA804A0002F864 /* QueryURLConvertible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryURLConvertible.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +68,7 @@
 		A5B990B71CC394C20061C748 /* DictObjc */ = {
 			isa = PBXGroup;
 			children = (
+				A5D0A4911CCA804A0002F864 /* QueryURLConvertible.h */,
 				A5B990BB1CC394C20061C748 /* AppDelegate.h */,
 				A5B990BC1CC394C20061C748 /* AppDelegate.m */,
 				A522C1271CC3BBD900483A90 /* DataSource.h */,

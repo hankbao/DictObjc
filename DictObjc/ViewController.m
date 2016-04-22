@@ -111,8 +111,8 @@
     return self.toolbar;
 }
 
-- (void)showTerm:(NSString *)term {
-    NSURL *url = [term zt_termQueryURL];
+- (void)showTerm:(id <QueryURLConvertible>)convertible {
+    NSURL *url = [convertible zt_queryURL];
 
     UIViewController *libViewController
         = [[SFSafariViewController alloc] initWithURL:url entersReaderIfAvailable:YES];

@@ -10,7 +10,7 @@
 
 @implementation NSString (Query)
 
-- (NSURL *)zt_termQueryURL {
+- (NSURL *)zt_queryURL {
     NSString *encoded = [self stringByAddingPercentEncodingWithAllowedCharacters:
                          [NSCharacterSet URLQueryAllowedCharacterSet]];
     NSString *urlString = [NSString stringWithFormat:@"https://cn.bing.com/dict/search?q=%@", encoded];
